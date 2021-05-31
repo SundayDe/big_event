@@ -41,3 +41,9 @@ function renderAvatar(user) {
     $('.userinfo').attr('style', 'opacity:1')
 }
 
+$('#user-nav').on('click', "dd", function () {
+    $('#left-user-nav').children('dd').eq($(this).index()).addClass('layui-this').siblings().removeClass('layui-this')
+})
+$('#left-user-nav').on('click', "dd", function () {
+    $('#user-nav').children('dd').eq($(this).index()).addClass('layui-this').siblings().removeClass('layui-this')
+})
