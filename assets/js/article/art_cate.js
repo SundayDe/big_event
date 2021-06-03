@@ -14,7 +14,6 @@ $(function () {
     $('body').on('submit', '#form-add', function (e) {
         e.preventDefault()
         const data = $(this).serialize()
-        // console.log(data);
         $.ajax({
             url: '/my/article/addcates',
             method: 'POST',
@@ -31,7 +30,6 @@ $(function () {
     // 获取修改的数据
     let indexEdit = null
     $('tbody').on('click', '#btnEdit', function () {
-        // console.log($('#dialog-edit').html());
         const id = this.dataset['id']
         $.ajax({
             url: "/my/article/cates/" + id,
@@ -53,7 +51,6 @@ $(function () {
     $('body').on('submit', '#form-edit', function (e) {
         e.preventDefault()
         const data = $(this).serialize()
-        console.log(data);
         $.ajax({
             url: '/my/article/updatecate',
             method: 'POST',
@@ -69,14 +66,12 @@ $(function () {
 
     // 删除文章
     $('tbody').on('click', '#btnDelete', function () {
-        // console.log($('#dialog-edit').html());
         layer.confirm('是否删除?', { icon: 3, title: '提示' }, (index) => {
             const id = this.dataset['id']
             $.ajax({
                 url: "/my/article/delectate/" + id,
                 type: 'get',
                 success: function (res) {
-                    // console.log(res);
                     if (res.status !== 0) return layer.msg('删除文章类别失败')
                     layer.msg(res.message)
                     layer.close(index);

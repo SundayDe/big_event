@@ -58,7 +58,7 @@ $(function () {
         // 1. 阻止表单的默认提交行为
         e.preventDefault()
         // 2. 基于 form 表单，快速创建一个 FormData 对象
-        var fd = new FormData($(this)[0])
+        var fd = new FormData(this)
         // 3. 将文章的发布状态，存到 fd 中
         fd.append('state', state)
         // 4. 将封面裁剪过后的图片，输出为一个文件对象
@@ -74,7 +74,6 @@ $(function () {
                 // 5. 将文件对象，存储到 fd 中
                 fd.append('cover_img', blob)
                 // 6. 发起 ajax 数据请求
-                console.log(fd);
                 publishArticle(fd)
             })
     })
